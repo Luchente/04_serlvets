@@ -14,11 +14,13 @@ import static javax.servlet.http.HttpServletResponse.SC_NO_CONTENT;
 
 public class PostController {
   public static final String APPLICATION_JSON = "application/json";
-  private final PostService service;
-  private final Gson gson = new Gson();
 
-  public PostController(PostService service) {
+  private final PostService service;
+  private final Gson gson;
+
+  public PostController(PostService service, Gson gson) {
     this.service = service;
+    this.gson = gson;
   }
 
   public void all(HttpServletResponse response) throws IOException {

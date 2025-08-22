@@ -26,7 +26,6 @@ public class PostService {
     }
 
     public void removeById(long id) {
-        // при желании можно бросать NotFound, если не было — но для REST нормально молчаливо удалить
         repository.removeById(id);
     }
 }
