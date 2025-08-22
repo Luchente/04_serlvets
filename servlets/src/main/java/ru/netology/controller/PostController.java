@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.service.PostService;
-import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Reader;
@@ -12,14 +12,15 @@ import java.io.Reader;
 import static javax.servlet.http.HttpServletResponse.SC_NOT_FOUND;
 import static javax.servlet.http.HttpServletResponse.SC_NO_CONTENT;
 
-@Component
 public class PostController {
   public static final String APPLICATION_JSON = "application/json";
-  private final PostService service;
-  private final Gson gson = new Gson();
 
-  public PostController(PostService service) {
+  private final PostService service;
+  private final Gson gson;
+
+  public PostController(PostService service, Gson gson) {
     this.service = service;
+    this.gson = gson;
   }
 
   public void all(HttpServletResponse response) throws IOException {

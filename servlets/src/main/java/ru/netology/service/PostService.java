@@ -3,11 +3,9 @@ package ru.netology.service;
 import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.repository.PostRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class PostService {
     private final PostRepository repository;
 
@@ -28,7 +26,6 @@ public class PostService {
     }
 
     public void removeById(long id) {
-        // при желании можно бросать NotFound, если не было — но для REST нормально молчаливо удалить
         repository.removeById(id);
     }
 }
